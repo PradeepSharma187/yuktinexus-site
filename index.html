@@ -418,8 +418,8 @@
       <p>Each relationship migrates naturally from a low-commitment first conversation to deeper engagement as the value proves out.</p>
     </div>
     <div class="ladder">
-      <div class="rung"><div class="fmt">Expert Call<span>60–90 minutes</span></div><div class="desc">A structured session with a pre-agreed agenda and a practitioner matched to your specific mandate.</div><div class="rate">Per Engagement</div></div>
-      <div class="rung"><div class="fmt">Validation Sprint<span>3–5 working days</span></div><div class="desc">A practitioner reviews a framework, challenges an RFP, or stress-tests a GCC business case or BIA methodology.</div><div class="rate">Per Engagement</div></div>
+      <div class="rung"><div class="fmt">Expert Call<span>60–90 minutes</span></div><div class="desc">A structured session with a pre-agreed agenda and a practitioner matched to your specific mandate.</div><div class="rate">₹12K–60K</div></div>
+      <div class="rung"><div class="fmt">Validation Sprint<span>3–5 working days</span></div><div class="desc">A practitioner reviews a framework, challenges an RFP, or stress-tests a GCC business case or BIA methodology.</div><div class="rate">₹60K–2L</div></div>
       <div class="rung"><div class="fmt">Embedded Project<span>4–12 weeks</span></div><div class="desc">An expert embedded as a working advisor on a live transformation, setup, or compliance programme.</div><div class="rate">Retainer</div></div>
       <div class="rung"><div class="fmt">Fractional Leadership<span>6–12 months</span></div><div class="desc">A senior practitioner in a functional leadership role: fractional COO, head of operations, or transformation lead.</div><div class="rate">Monthly</div></div>
       <div class="rung"><div class="fmt">Mentoring Circle<span>3–6 months</span></div><div class="desc">An expert works with a small cohort of mid-career operations managers as a structured sounding board.</div><div class="rate">Per cohort</div></div>
@@ -534,7 +534,7 @@
 <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
   <div class="modal-box form">
     <button class="x" onclick="closeForm()" aria-label="Close">×</button>
-    <span class="draft">Draft · send wires to Zoho later</span>
+    <span class="draft">Sends to Pradeep</span>
     <h3 id="formTitle">Tell us what you need</h3>
     <p class="sub" id="formSub">A few details and it reaches Pradeep directly.</p>
 
@@ -626,7 +626,7 @@
 <div class="modal" id="libModal" role="dialog" aria-modal="true" aria-labelledby="libTitle">
   <div class="modal-box form">
     <button class="x" onclick="closeLibrary()" aria-label="Close">×</button>
-    <span class="draft">Draft · send wires to Zoho later</span>
+    <span class="draft">Sends to Pradeep</span>
     <h3 id="libTitle">Request library access</h3>
     <p class="sub">Select what you'd like, add your details, and it's sent to Pradeep.</p>
 
@@ -784,16 +784,15 @@
     document.getElementById('errLEmail').classList.toggle('show', !okEmail);
     if(!okPapers || !okName || !okEmail) return;
 
-    var payload = {
-      form: 'library-access',
-      papers: picked,
+    zohoSend({
+      path: 'Library access',
       name: name,
       email: email,
-      org: document.getElementById('lfOrg').value.trim()
-    };
-    /* TODO (Zoho): POST `payload` to your Zoho endpoint to email
-       pradeep.sharma@yuktinexus.com. Nothing is stored here. */
-    console.log('DRAFT library request (not sent yet):', payload);
+      org: document.getElementById('lfOrg').value.trim(),
+      expertise: '',
+      detail: '',
+      message: 'Requested papers: ' + picked.join('; ')
+    });
 
     document.getElementById('libBody').style.display = 'none';
     document.getElementById('libOk').style.display = 'block';
@@ -882,6 +881,34 @@
     return BLOCKED_DOMAINS.indexOf(m[1]) === -1;
   }
 
+  /* ===== Zoho Forms wiring =====
+     Submits silently to the YuktiNexus Website Enquiries form.
+     Field map (from Zoho HTML export):
+       Name_First / Name_Last = Name
+       Email                  = Email
+       SingleLine             = Organisation
+       SingleLine1            = Expertise
+       SingleLine2            = Detail (2nd dropdown: format/years/reason)
+       SingleLine3            = Path  (which popup it came from)
+       MultiLine              = Message
+     Nothing is stored on the page; Zoho emails pradeep.sharma@yuktinexus.com. */
+  var ZOHO_ENDPOINT = 'https://forms.zohopublic.in/pradeepsharmayukti1/form/YuktiNexusWebsiteEnquiries/formperma/m8ny9zZvTWv166sV_X-HnaCKCdyNtzrFxEsyBxSd-Ns/htmlRecords/submit';
+
+  function zohoSend(fields){
+    var fd = new FormData();
+    var parts = (fields.name || '').trim().split(/\s+/);
+    fd.append('Name_First', parts.shift() || '');
+    fd.append('Name_Last', parts.join(' '));
+    fd.append('Email', fields.email || '');
+    fd.append('SingleLine', fields.org || '');
+    fd.append('SingleLine1', fields.expertise || '');
+    fd.append('SingleLine2', fields.detail || '');
+    fd.append('SingleLine3', fields.path || '');
+    fd.append('MultiLine', fields.message || '');
+    // Fire-and-forget; no-cors so the browser doesn't block the cross-site post.
+    return fetch(ZOHO_ENDPOINT, { method:'POST', body: fd, mode:'no-cors' });
+  }
+
   function submitForm(){
     var name = document.getElementById('efName').value.trim();
     var email = document.getElementById('efEmail').value.trim();
@@ -890,26 +917,19 @@
     document.getElementById('errEmail').classList.toggle('show', !okEmail);
     if(!okName || !okEmail) return;
 
-    var payload = {
-      path: document.getElementById('formModal').getAttribute('data-path'),
-      reason: document.getElementById('efReason').value,
+    var path = document.getElementById('formModal').getAttribute('data-path');
+    var pathLabel = ({enterprise:'Engage a practitioner', practitioner:'Join the network', general:'Talk to us', investor:'Request the pitch'})[path] || path;
+    var reason = document.getElementById('efReason').value;
+
+    zohoSend({
+      path: pathLabel + (reason ? ' (' + reason + ')' : ''),
       name: name,
       email: email,
       org: document.getElementById('efOrg').value.trim(),
       expertise: document.getElementById('efCluster').value,
-      second: document.getElementById('efSecond').value,
+      detail: document.getElementById('efSecond').value,
       message: document.getElementById('efMsg').value.trim()
-    };
-
-    /* TODO (Zoho): POST `payload` to your Zoho Forms / Zoho Flow webhook
-       so it emails pradeep.sharma@yuktinexus.com. Nothing is stored here.
-       Example:
-       fetch('https://forms.zohopublic.in/your-endpoint', {
-         method:'POST', headers:{'Content-Type':'application/json'},
-         body: JSON.stringify(payload)
-       });
-    */
-    console.log('DRAFT submission (not sent yet):', payload);
+    });
 
     document.getElementById('formBody').style.display = 'none';
     document.getElementById('formOk').style.display = 'block';
