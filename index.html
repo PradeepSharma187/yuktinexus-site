@@ -36,8 +36,8 @@
 
   /* ---------- NAV ---------- */
   header{position:sticky;top:0;z-index:50;background:rgba(7,26,44,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:14px;font-family:var(--sans);font-weight:600;letter-spacing:.04em;font-size:16px;color:#fff}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--sans);font-weight:600;letter-spacing:.04em;font-size:16px;color:#fff;flex:none}
   .logo-unit{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none}
   .logo-icon{width:34px;height:34px;display:block}
   .logo-word{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.02em;color:#2E5C9A;line-height:1}
@@ -45,10 +45,11 @@
   .brand-type{display:flex;flex-direction:column;justify-content:center;flex:none}
   .bt-line{white-space:nowrap;font-size:16px}
   .brand b{color:var(--gold);font-weight:600}
-  .brand small{display:block;font-family:var(--sans);font-weight:400;font-size:9.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-top:1px}
-  .navlinks{display:flex;gap:30px;font-size:13.5px;color:var(--ice)}
+  .brand small{display:block;font-family:var(--sans);font-weight:400;font-size:9.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-top:1px;white-space:nowrap}
+  .navlinks{display:flex;gap:22px;font-size:13.5px;color:var(--ice);flex:1 1 auto;justify-content:flex-end}
+  .navlinks a{white-space:nowrap}
   .navlinks a:hover{color:var(--gold-2)}
-  .nav-cta{font-size:13.5px;font-weight:500;background:var(--gold);color:var(--ink);padding:9px 18px;border-radius:7px;transition:.18s}
+  .nav-cta{font-size:13.5px;font-weight:500;background:var(--gold);color:var(--ink);padding:9px 18px;border-radius:7px;transition:.18s;flex:none;white-space:nowrap}
   .nav-cta:hover{background:var(--gold-2)}
   .menu-btn{display:none;background:none;border:0;color:#fff;font-size:22px;cursor:pointer}
 
@@ -266,9 +267,11 @@
   .home-fab svg{width:22px;height:22px}
 
   /* ---------- RESPONSIVE ---------- */
-  @media(max-width:860px){
+  @media(max-width:1024px){
     .navlinks{display:none}
     .menu-btn{display:block}
+  }
+  @media(max-width:860px){
     .stats .wrap{grid-template-columns:1fr 1fr}
     .stat:nth-child(2){border-right:0}
     .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
