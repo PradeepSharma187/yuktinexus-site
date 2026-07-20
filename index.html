@@ -46,8 +46,14 @@
   .bt-line{white-space:nowrap;font-size:16px}
   .brand b{color:var(--gold);font-weight:600}
   .brand small{display:block;font-family:var(--sans);font-weight:400;font-size:9.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-top:1px}
-  .navlinks{display:flex;gap:30px;font-size:13.5px;color:var(--ice)}
+  .navlinks{display:flex;gap:30px;font-size:13.5px;color:var(--ice);align-items:center}
   .navlinks a:hover{color:var(--gold-2)}
+  .navdrop{position:relative}
+  .navdrop>span{cursor:default}
+  .navdrop-menu{display:none;position:absolute;top:26px;left:0;background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:8px;min-width:190px;box-shadow:0 12px 30px rgba(0,0,0,.35);z-index:60}
+  .navdrop:hover .navdrop-menu{display:block}
+  .navdrop-menu a{display:block;padding:9px 12px;border-radius:7px;font-size:13.5px;color:var(--ice)}
+  .navdrop-menu a:hover{background:var(--ink-3);color:var(--gold-2)}
   .nav-cta{font-size:13.5px;font-weight:500;background:var(--gold);color:var(--ink);padding:9px 18px;border-radius:7px;transition:.18s}
   .nav-cta:hover{background:var(--gold-2)}
   .menu-btn{display:none;background:none;border:0;color:#fff;font-size:22px;cursor:pointer}
@@ -296,7 +302,13 @@
       <a href="#how">How it works</a>
       <a href="#clusters">Expertise</a>
       <a href="#formats">Engage</a>
-      <a href="#resources">Resources</a>
+      <div class="navdrop">
+        <span>Resources</span>
+        <div class="navdrop-menu">
+          <a href="#resources">Library</a>
+          <a href="insights.html">From the Network</a>
+        </div>
+      </div>
       <a href="#investor">Investors</a>
     </nav>
     <a class="nav-cta" href="#" onclick="openForm('general');return false;">Talk to us</a>
@@ -734,6 +746,7 @@
       <a href="#clusters">Expertise</a>
       <a href="#formats">Engage</a>
       <a href="#resources">Resources</a>
+      <a href="insights.html">From the Network</a>
       <a href="#investor">Investors</a>
       <a href="https://www.linkedin.com/company/yuktinexus" target="_blank" rel="noopener">LinkedIn</a>
     </div>
