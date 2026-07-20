@@ -246,6 +246,10 @@
   .form-ok .tick{width:46px;height:46px;border-radius:50%;background:rgba(29,158,117,.15);border:1px solid #1D9E75;color:#1D9E75;display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px}
   .form-ok h3{font-family:var(--serif);color:#fff;font-size:22px;margin-bottom:8px}
   .form-ok p{font-size:14px;color:var(--muted)}
+  .lib-ok-links{display:flex;flex-direction:column;gap:10px;margin-top:18px;text-align:left}
+  .lib-ok-links a.lib-dl{display:block;padding:12px 16px;border:1px solid var(--line);border-radius:10px;color:var(--gold-2);font-size:14px;font-weight:500;text-decoration:none}
+  .lib-ok-links a.lib-dl:hover{border-color:var(--gold-2)}
+  .lib-ok-links span.lib-dl{display:block;padding:12px 16px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:13px;font-style:italic}
 
   /* ---------- FLOATING HOME BUTTON ---------- */
   .home-fab{position:fixed;right:22px;bottom:22px;z-index:80;width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--ink);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:.22s}
@@ -477,8 +481,8 @@
     <div class="res-head">
       <div class="sec-head">
         <p class="eyebrow" style="color:var(--gold)">Resources</p>
-        <h2 style="color:#fff">The practitioner library <span class="soon-tag">Coming soon</span></h2>
-        <p style="color:var(--ice)">White papers, playbooks, and field notes written by people who built and ran these operations. The first releases are on the way.</p>
+        <h2 style="color:#fff">The practitioner library</h2>
+        <p style="color:var(--ice)">White papers, playbooks, and field notes written by people who built and ran these operations.</p>
       </div>
     </div>
 
@@ -488,7 +492,9 @@
         <h4>Setting up a GCC, the first 36 months</h4>
         <p>The decisions made in the first three years that quietly determine the next ten, from governance design to the SLAs you anchor on day one.</p>
         <div class="meta">PDF · 24 pages</div>
-        <div class="soon-line">Available soon</div>
+        <div class="act">
+          <a href="#" class="lock" onclick="openLibrary('gcc-first-36-months');return false;">Request access →</a>
+        </div>
       </div>
       <div class="res-card">
         <span class="kind">Playbook</span>
@@ -496,7 +502,7 @@
         <p>Ten operating archetypes and the three universal laws that cut across them, with a practitioner quick-reference for every quarter.</p>
         <div class="meta">PDF · 12 plates</div>
         <div class="act">
-          <a href="gcc-leadership-playbook.pdf" download class="lock" style="color:#D4A832;">Download the playbook →</a>
+          <a href="#" class="lock" onclick="openLibrary('playbook');return false;">Request access →</a>
         </div>
       </div>
       <div class="res-card">
@@ -504,28 +510,36 @@
         <h4>When the batch window is the problem</h4>
         <p>How a 24-hour processing cycle manufactures the very errors operations spends its days managing, and what replacing it actually takes.</p>
         <div class="meta">PDF · 8 pages</div>
-        <div class="soon-line">Available soon</div>
+        <div class="act">
+          <a href="#" class="lock" onclick="openLibrary('batch-window');return false;">Request access →</a>
+        </div>
       </div>
       <div class="res-card">
         <span class="kind">White paper</span>
         <h4>Pricing the invisible: the white-gloves model</h4>
         <p>Turning premium manual oversight from a silent subsidy into a documented, fairly priced service category that the right clients pay for.</p>
         <div class="meta">PDF · 16 pages</div>
-        <div class="soon-line">Available soon</div>
+        <div class="act">
+          <a href="#" class="lock" onclick="openLibrary('white-gloves');return false;">Request access →</a>
+        </div>
       </div>
       <div class="res-card">
         <span class="kind">Field note</span>
         <h4>Continuity that executes, not certifies</h4>
         <p>What a real BCP looks like when tested under load, drawn from moving a 450-person operation to work-from-home over a single weekend.</p>
         <div class="meta">PDF · 10 pages</div>
-        <div class="soon-line">Available soon</div>
+        <div class="act">
+          <a href="#" class="lock" onclick="openLibrary('continuity');return false;">Request access →</a>
+        </div>
       </div>
       <div class="res-card">
         <span class="kind">Briefing</span>
         <h4>AI in a regulated back office</h4>
         <p>Moving GenAI and automation past the pilot into live BFSI operations, and the governance the audit will ask you about afterward.</p>
         <div class="meta">PDF · 14 pages</div>
-        <div class="soon-line">Available soon</div>
+        <div class="act">
+          <a href="#" class="lock" onclick="openLibrary('ai-regulated');return false;">Request access →</a>
+        </div>
       </div>
     </div>
 
@@ -637,6 +651,7 @@
       <div class="lib-list">
         <label class="lib-all"><input type="checkbox" id="libAll" onchange="toggleAllPapers(this)"><span class="lt">Select all papers</span></label>
         <label class="lib-opt"><input type="checkbox" class="libchk" value="Setting up a GCC, the first 36 months"><span><span class="lt">Setting up a GCC, the first 36 months</span><span class="lk">White paper</span></span></label>
+        <label class="lib-opt"><input type="checkbox" class="libchk" value="The GCC Leadership Playbook"><span><span class="lt">The GCC Leadership Playbook</span><span class="lk">Playbook</span></span></label>
         <label class="lib-opt"><input type="checkbox" class="libchk" value="When the batch window is the problem"><span><span class="lt">When the batch window is the problem</span><span class="lk">Field note</span></span></label>
         <label class="lib-opt"><input type="checkbox" class="libchk" value="Pricing the invisible: the white-gloves model"><span><span class="lt">Pricing the invisible: the white-gloves model</span><span class="lk">White paper</span></span></label>
         <label class="lib-opt"><input type="checkbox" class="libchk" value="Continuity that executes, not certifies"><span><span class="lt">Continuity that executes, not certifies</span><span class="lk">Field note</span></span></label>
@@ -661,13 +676,14 @@
       <div class="field-err" id="errLEmail">Please use your work email. Free or personal domains aren't accepted.</div>
 
       <button class="submit" onclick="submitLibrary()">Send my request</button>
-      <p class="fine">No data is stored here. On send, your selection and details are emailed to pradeep.sharma@yuktinexus.com.</p>
+      <p class="fine">No data is stored here. On send, your selection opens for you directly, and a copy of your request and details is emailed to pradeep.sharma@yuktinexus.com.</p>
     </div>
 
     <div class="form-ok" id="libOk">
       <div class="tick">✓</div>
       <h3>Request received</h3>
-      <p>Thanks. Your selection has been sent and Pradeep will share the papers with you directly.</p>
+      <p>Thanks. Your selection is below to open or download now, and a copy of your request has been sent to Pradeep.</p>
+      <div class="lib-ok-links" id="libOkLinks"></div>
     </div>
   </div>
 </div>
@@ -694,7 +710,8 @@
       <button class="btn btn-primary" onclick="openForm('general')">Start a conversation →</button>
       <div class="lines">
         <a href="mailto:pradeep.sharma@yuktinexus.com">pradeep.sharma@yuktinexus.com</a><br>
-        +91 73307 46660 · <a href="https://www.yuktinexus.com">www.yuktinexus.com</a>
+        +91 73307 46660 · <a href="https://www.yuktinexus.com">www.yuktinexus.com</a><br>
+        <a href="https://www.linkedin.com/company/yuktinexus" target="_blank" rel="noopener">LinkedIn →</a>
       </div>
     </div>
   </div>
@@ -709,7 +726,7 @@
         <span class="logo-word">YuktiNexus</span>
       </span>
       <span class="brand-divider"></span>
-      <span class="brand-type"><span class="bt-line">YUKTI<b>NEXUS</b></span><small>Practitioner intelligence · Hyderabad, India</small></span>
+      <span class="brand-type"><span class="bt-line">YUKTI<b>NEXUS</b></span><small>Where strategy meets connectivity</small></span>
     </a>
     <div class="foot-links">
       <a href="#problem">The gap</a>
@@ -718,6 +735,7 @@
       <a href="#formats">Engage</a>
       <a href="#resources">Resources</a>
       <a href="#investor">Investors</a>
+      <a href="https://www.linkedin.com/company/yuktinexus" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="foot-meta">
       © 2026 YuktiNexus Expert Network<br>
@@ -739,10 +757,21 @@
      One form, checkbox selection, work-email only, nothing stored. */
   var PAPER_TITLES = {
     'gcc-first-36-months':'Setting up a GCC, the first 36 months',
+    'playbook':'The GCC Leadership Playbook',
     'batch-window':'When the batch window is the problem',
     'white-gloves':'Pricing the invisible: the white-gloves model',
     'continuity':'Continuity that executes, not certifies',
     'ai-regulated':'AI in a regulated back office'
+  };
+  // Actual PDF filenames on the server, keyed the same way as PAPER_TITLES.
+  // Update these if the hosted filenames differ.
+  var PAPER_FILES = {
+    'gcc-first-36-months':'GCC_First_36_Months.pdf',
+    'playbook':'gcc-leadership-playbook.pdf',
+    'batch-window':'Batch_Window_Field_Note.pdf',
+    'white-gloves':'Pricing_The_Invisible.pdf',
+    'continuity':'Continuity_Executes.pdf',
+    'ai-regulated':'AI_Regulated_Back_Office.pdf'
   };
 
   function openLibrary(fileId){
@@ -793,6 +822,19 @@
       detail: '',
       message: 'Requested papers: ' + picked.join('; ')
     });
+
+    // Build direct download links for the papers just requested, so access
+    // is pushed immediately from the page itself, in addition to Pradeep's copy.
+    var titleToId = {};
+    Object.keys(PAPER_TITLES).forEach(function(id){ titleToId[PAPER_TITLES[id]] = id; });
+    var linksHtml = picked.map(function(title){
+      var id = titleToId[title];
+      var file = id ? PAPER_FILES[id] : null;
+      return file
+        ? '<a class="lib-dl" href="' + file + '" download>' + title + ' →</a>'
+        : '<span class="lib-dl">' + title + ' (link unavailable, Pradeep will follow up)</span>';
+    }).join('');
+    document.getElementById('libOkLinks').innerHTML = linksHtml;
 
     document.getElementById('libBody').style.display = 'none';
     document.getElementById('libOk').style.display = 'block';
