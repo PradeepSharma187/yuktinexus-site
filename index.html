@@ -87,7 +87,7 @@
 
   /* ---------- STAT STRIP ---------- */
   .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-3)}
-  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stats .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
   .stat{padding:30px 24px;border-right:1px solid var(--line)}
   .stat:last-child{border-right:0}
   .stat .n{font-family:var(--serif);font-size:34px;color:var(--gold-2);line-height:1}
@@ -166,13 +166,6 @@
   .net-list li{position:relative;padding:13px 0 13px 26px;font-size:14.5px;color:var(--ice);line-height:1.55;border-top:1px solid var(--line)}
   .net-list li:before{content:"";position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:2px;background:var(--gold)}
   .net-foot{margin-top:22px;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--muted)}
-
-  /* ---------- INVESTOR (quiet) ---------- */
-  .invest{border-top:1px solid var(--line)}
-  .invest .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
-  .invest .t .eyebrow{color:var(--muted)}
-  .invest .t h3{font-family:var(--serif);font-size:22px;color:#fff;margin-top:10px;font-weight:500;max-width:560px}
-  .invest .t p{font-size:14px;color:var(--muted);margin-top:8px;max-width:560px}
 
   /* ---------- CONTACT ---------- */
   .contact{background:var(--ink-3)}
@@ -321,7 +314,6 @@
           <a href="insights.html">From the Network</a>
         </div>
       </div>
-      <a href="#investor">Investors</a>
     </nav>
     <a class="nav-cta" href="#" onclick="openForm('general');return false;">Talk to us</a>
     <button class="menu-btn" aria-label="Menu">☰</button>
@@ -351,6 +343,7 @@
     <div class="stat"><div class="n">2,100</div><div class="l">GCCs projected by FY2028</div></div>
     <div class="stat"><div class="n">$110B</div><div class="l">GCC sector value by 2030</div></div>
     <div class="stat"><div class="n">0</div><div class="l">Practitioner networks serving this segment</div></div>
+    <div class="stat"><div class="n">80%</div><div class="l">Of GCCs have less than 10% of leadership roles based in India</div></div>
   </div>
 </div>
 
@@ -366,13 +359,14 @@
       <div class="gap-card">
         <span class="tag">The affordability gap</span>
         <h3>Decisions made blind</h3>
-        <p>Big 4 engagements for GCC setup, managed services design, or BCP run ₹80–200 lakh over three to six months. Mid-market enterprises, PE-backed companies, and new captives are locked out, left to attempt the mandate internally, hire juniors who have never run one, or lean on informal referrals with no governance.</p>
+        <p>Big 4 GCC advisory typically runs ₹50 lakh to ₹2 crore for a scoped engagement, and well past that for a full build, over three to six months to first hires. Mid-market enterprises, PE-backed companies, and new captives are locked out, left to attempt the mandate internally, hire juniors who have never run one, or lean on informal referrals with no governance.</p>
         <p class="cost">So the same mistakes get made at scale, and re-learned across the industry at enormous cost.</p>
       </div>
       <div class="gap-card">
         <span class="tag">The practitioner access gap</span>
         <h3>Judgment with nowhere to go</h3>
         <p>The people who have actually run GCCs, operationalised BOT transitions, deployed AI inside regulated BFSI back offices, or implemented ISO under regulatory scrutiny are working senior professionals. Their expertise is not organised, curated, or commercially available in any structured form.</p>
+        <p>Roughly 30% of GCC country heads leave within 30 months of joining, not a market attrition statistic, a hiring quality statistic. The people who've built a center from scratch, not just worked inside one, are a distinct, smaller cohort, and most of them aren't looking.</p>
         <p class="cost">LinkedIn exists. Referrals exist. A governed platform did not, until now.</p>
       </div>
     </div>
@@ -392,7 +386,7 @@
         <div class="topline"></div>
         <p class="for">For enterprises &amp; GCC sponsors</p>
         <h3>Engage a practitioner</h3>
-        <p>Bring the decision you have not made before. We match you to someone who has already lived it, before you commit capital, sign the transition, or deploy into production.</p>
+        <p>Bring the decision you have not made before. We match you to someone who has already lived it, before you commit capital, sign the transition, or deploy into production. Built especially for mid-market and PE-backed GCCs, the fastest-growing, least-served segment of the market, evaluated against enterprise-scale playbooks that were never built for them.</p>
         <ul>
           <li>GCC setup validated by someone who ran a comparable captive</li>
           <li>AI and GenAI workflows pressure-tested before the build</li>
@@ -429,7 +423,7 @@
     <div class="cluster-grid">
       <div class="cluster"><div class="no">01</div><h4>GCC &amp; Captive Setup</h4><p>Site selection, entity setup, governance design, and the first 36 months of captive operations across BFSI, tech, pharma, and shared services.</p></div>
       <div class="cluster"><div class="no">02</div><h4>Managed Services &amp; BOT</h4><p>Designing, negotiating, and operationalising BOT transitions and multi-vendor ecosystem models at scale.</p></div>
-      <div class="cluster"><div class="no">03</div><h4>AI, GenAI &amp; RPA</h4><p>Intelligent automation and LLM integration moved beyond pilots into production inside live banking and insurance back offices.</p></div>
+      <div class="cluster"><div class="no">03</div><h4>AI, GenAI &amp; RPA</h4><p>Pilot-to-production. Getting AI out of pilot purgatory and into live production inside regulated banking and insurance back offices, with the governance the audit will ask about afterward.</p></div>
       <div class="cluster"><div class="no">04</div><h4>BCP &amp; BIA</h4><p>Continuity frameworks designed, stress-tested, and activated, including regulatory BIA submissions to RBI, SEBI, and IRDAI.</p></div>
       <div class="cluster"><div class="no">05</div><h4>ISO &amp; Compliance</h4><p>Hands-on ISO 27001, 9001, 22301, and SOC 2 implementation, surveillance audits, and multi-site rollout.</p></div>
       <div class="cluster"><div class="no">06</div><h4>Fractional Leadership</h4><p>VP-to-C-suite practitioners as fractional COOs and heads of operations, and as sounding boards for mid-career managers.</p></div>
@@ -453,6 +447,10 @@
       <div class="rung"><div class="fmt">Mentoring Circle<span>3–6 months</span></div><div class="desc">An expert works with a small cohort of mid-career operations managers as a structured sounding board.</div><div class="rate">Per cohort</div></div>
     </div>
     <p class="ladder-note">A corporate that begins with a single Expert Call typically deepens within 90 days when the first engagement delivers.</p>
+    <div class="ladder" style="margin-top:20px">
+      <div class="rung"><div class="fmt">BCP Health Check<span>Validation Sprint</span></div><div class="desc">A 5-day Validation Sprint stress-testing your continuity plan against RBI/SEBI/IRDAI expectations, not the theory, an actual failover test.</div><div class="rate">₹60K–2L</div></div>
+      <div class="rung"><div class="fmt">ISO 22301 Readiness Sprint<span>Validation Sprint</span></div><div class="desc">Gap assessment before your parent company asks.</div><div class="rate">₹60K–2L</div></div>
+    </div>
   </div>
 </section>
 
@@ -718,17 +716,6 @@
 </div>
 
 
-<section class="invest" id="investor">
-  <div class="wrap">
-    <div class="t">
-      <p class="eyebrow">For investors &amp; partners</p>
-      <h3>A proven, high-margin model, pointed at a market India already dominates and has never served.</h3>
-      <p>India-native, operations-focused, six specialist clusters, fractional leadership as a core product. The window for a first mover in this segment is open now. The operating model and seed thesis are available on request.</p>
-    </div>
-    <button class="btn btn-ghost" onclick="openForm('investor')">Request the pitch</button>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
@@ -764,7 +751,6 @@
       <a href="#formats">Engage</a>
       <a href="#resources">Resources</a>
       <a href="insights.html">From the Network</a>
-      <a href="#investor">Investors</a>
       <a href="https://www.linkedin.com/company/yuktinexus" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="foot-meta">
@@ -889,7 +875,6 @@
   function openForm(path){
     var enterprise = (path === 'enterprise');
     var general = (path === 'general');
-    var investor = (path === 'investor');
     document.getElementById('formModal').setAttribute('data-path', path);
 
     var title = document.getElementById('formTitle');
@@ -904,15 +889,6 @@
       document.getElementById('expertiseRow').style.display = 'none';
       document.getElementById('orgLabel').textContent = 'Organisation (optional)';
       document.getElementById('msgLabel').textContent = 'What would you like to talk about?';
-    } else if(investor){
-      title.textContent = 'Request the pitch';
-      sub.textContent = 'A few details and the operating model and seed thesis reach you directly.';
-      banner.style.display = 'flex';
-      document.getElementById('pathValue').textContent = 'Investor / partner';
-      document.getElementById('reasonWrap').style.display = 'none';
-      document.getElementById('expertiseRow').style.display = 'none';
-      document.getElementById('orgLabel').textContent = 'Firm / fund';
-      document.getElementById('msgLabel').textContent = 'What would you like to explore?';
     } else {
       title.textContent = 'Tell us what you need';
       sub.textContent = 'A few details and it reaches Pradeep directly.';
@@ -990,7 +966,7 @@
     if(!okName || !okEmail) return;
 
     var path = document.getElementById('formModal').getAttribute('data-path');
-    var pathLabel = ({enterprise:'Engage a practitioner', practitioner:'Join the network', general:'Talk to us', investor:'Request the pitch'})[path] || path;
+    var pathLabel = ({enterprise:'Engage a practitioner', practitioner:'Join the network', general:'Talk to us'})[path] || path;
     var reason = document.getElementById('efReason').value;
 
     zohoSend({
