@@ -14,6 +14,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>YuktiNexus · Practitioner judgment, before the decision</title>
 <meta name="description" content="India's first practitioner expert network for operations and GCC transformation. Direct access to leaders who built and ran these operations over two decades, from the ground up." />
+<meta name="theme-color" content="#071A2C">
+<link rel="canonical" href="https://www.yuktinexus.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="YuktiNexus">
+<meta property="og:title" content="YuktiNexus: practitioner judgment, before the decision">
+<meta property="og:description" content="India's first practitioner expert network for operations and GCC transformation. Direct access to leaders who built and ran these operations over two decades, from the ground up.">
+<meta property="og:url" content="https://www.yuktinexus.com/">
+<meta property="og:image" content="https://www.yuktinexus.com/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YuktiNexus: practitioner judgment, before the decision">
+<meta name="twitter:description" content="India's first practitioner expert network for operations and GCC transformation. Direct access to leaders who built and ran these operations over two decades, from the ground up.">
+<meta name="twitter:image" content="https://www.yuktinexus.com/og-banner.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -287,6 +301,21 @@
     .foot-meta{text-align:left}
   }
   @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+  /* ---- Sep 2026 additions ---- */
+  .navdrop>span{cursor:pointer}
+  .navdrop:focus-within .navdrop-menu{display:block}
+  .stat:nth-last-child(2){border-right:0}
+  .stats-src{font-size:11.5px;color:var(--muted);padding:10px 24px 12px;border-top:1px solid var(--line);grid-column:1 / -1}
+  .send-err{display:none;color:#E07A6B;font-size:13px;margin-top:12px;line-height:1.5}
+  .send-err.show{display:block}
+  .send-err a{text-decoration:underline}
+  .submit[disabled]{opacity:.6;cursor:wait}
+  @media(max-width:860px){
+    .navlinks .navdrop{flex-direction:column;align-items:flex-start;align-self:auto}
+    .navlinks .navdrop>span{color:var(--muted);font-size:12px}
+    .navlinks .navdrop-menu{display:block;position:static;transform:none;background:none;border:0;box-shadow:none;padding:4px 0 0 10px;min-width:0}
+  }
 </style>
 </head>
 <body>
@@ -308,7 +337,14 @@
       <a href="#clusters">Expertise</a>
       <a href="#formats">Engage</a>
       <div class="navdrop">
-        <span>Resources</span>
+        <span tabindex="0">Intelligence</span>
+        <div class="navdrop-menu">
+          <a href="gcc.html">GCC Intelligence</a>
+          <a href="bfsi.html">BFSI Intelligence</a>
+        </div>
+      </div>
+      <div class="navdrop">
+        <span tabindex="0">Resources</span>
         <div class="navdrop-menu">
           <a href="#resources">Library</a>
           <a href="insights.html">From the Network</a>
@@ -339,11 +375,12 @@
 <!-- STATS -->
 <div class="stats">
   <div class="wrap">
-    <div class="stat"><div class="n">1,600+</div><div class="l">GCCs operational in India today</div></div>
-    <div class="stat"><div class="n">2,100</div><div class="l">GCCs projected by FY2028</div></div>
-    <div class="stat"><div class="n">$110B</div><div class="l">GCC sector value by 2030</div></div>
+    <div class="stat"><div class="n">2,117</div><div class="l">GCCs operating in India today (FY26)</div></div>
+    <div class="stat"><div class="n">2.36M</div><div class="l">People employed in India's GCCs (FY26)</div></div>
+    <div class="stat"><div class="n">$98.4B</div><div class="l">India GCC revenue (FY26)</div></div>
     <div class="stat"><div class="n">0</div><div class="l">Practitioner networks serving this segment</div></div>
     <div class="stat"><div class="n">80%</div><div class="l">Of GCCs have less than 10% of leadership roles based in India</div></div>
+    <div class="stats-src">GCC figures: Zinnov-Nasscom India GCC Landscape 2026 and Nasscom FY26. Some reports count parent companies (2,117), others individual centres (3,728).</div>
   </div>
 </div>
 
@@ -648,14 +685,16 @@
       <label for="efMsg" id="msgLabel">Briefly, what's the situation?</label>
       <textarea id="efMsg" placeholder="A few lines on the mandate, timing, and what you're hoping to solve."></textarea>
 
-      <button class="submit" onclick="submitForm()">Send to Pradeep</button>
-      <p class="fine">No data is stored here. On send, the details are emailed to pradeep.sharma@yuktinexus.com.</p>
+      <button class="submit" id="efSubmit" type="button" onclick="submitForm()">Send to Pradeep</button>
+      <div class="send-err" id="errSend" role="alert">Your message didn't send. Check your connection and try again, or email <a href="mailto:pradeep.sharma@yuktinexus.com">pradeep.sharma@yuktinexus.com</a>.</div>
+      <p class="fine">Your details are sent securely via Zoho Forms and reach Pradeep directly. We use them only to respond to you.</p>
     </div>
 
     <div class="form-ok" id="formOk">
       <div class="tick">✓</div>
       <h3>On its way</h3>
       <p>Thanks. Your details have been sent and Pradeep will be in touch personally.</p>
+      <p class="fine">Didn't hear back in two working days? Email <a href="mailto:pradeep.sharma@yuktinexus.com">pradeep.sharma@yuktinexus.com</a>.</p>
     </div>
   </div>
 </div>
@@ -702,14 +741,15 @@
       </div>
       <div class="field-err" id="errLEmail">Please use your work email. Free or personal domains aren't accepted.</div>
 
-      <button class="submit" onclick="submitLibrary()">Send my request</button>
-      <p class="fine">No data is stored here. On send, your selection opens for you directly, and a copy of your request and details is emailed to pradeep.sharma@yuktinexus.com.</p>
+      <button class="submit" id="lfSubmit" type="button" onclick="submitLibrary()">Send my request</button>
+      <p class="fine">Your selection opens for you directly. A copy of your request is sent to Pradeep securely via Zoho Forms.</p>
     </div>
 
     <div class="form-ok" id="libOk">
       <div class="tick">✓</div>
       <h3>Request received</h3>
-      <p>Thanks. Your selection is below to open or download now, and a copy of your request has been sent to Pradeep.</p>
+      <p id="libOkMsg">Thanks. Your selection is below to open or download now, and a copy of your request has been sent to Pradeep.</p>
+      <p class="send-err" id="libSendWarn" role="alert">Your papers are below, but your request didn't reach Pradeep. If you'd like him to follow up, email <a href="mailto:pradeep.sharma@yuktinexus.com">pradeep.sharma@yuktinexus.com</a>.</p>
       <div class="lib-ok-links" id="libOkLinks"></div>
     </div>
   </div>
@@ -750,6 +790,8 @@
       <a href="#clusters">Expertise</a>
       <a href="#formats">Engage</a>
       <a href="#resources">Resources</a>
+      <a href="gcc.html">GCC Intelligence</a>
+      <a href="bfsi.html">BFSI Intelligence</a>
       <a href="insights.html">From the Network</a>
       <a href="https://www.linkedin.com/company/yuktinexus" target="_blank" rel="noopener">LinkedIn</a>
     </div>
@@ -829,7 +871,7 @@
     document.getElementById('errLEmail').classList.toggle('show', !okEmail);
     if(!okPapers || !okName || !okEmail) return;
 
-    zohoSend({
+    var libFields = {
       path: 'Library access',
       name: name,
       email: email,
@@ -837,7 +879,8 @@
       expertise: '',
       detail: '',
       message: 'Requested papers: ' + picked.join('; ')
-    });
+    };
+
 
     // Build direct download links for the papers just requested, so access
     // is pushed immediately from the page itself, in addition to Pradeep's copy.
@@ -852,8 +895,14 @@
     }).join('');
     document.getElementById('libOkLinks').innerHTML = linksHtml;
 
-    document.getElementById('libBody').style.display = 'none';
-    document.getElementById('libOk').style.display = 'block';
+    sendWithConfirm(libFields, document.getElementById('lfSubmit'), function(ok){
+      document.getElementById('libSendWarn').classList.toggle('show', !ok);
+      document.getElementById('libOkMsg').textContent = ok
+        ? 'Thanks. Your selection is below to open or download now, and a copy of your request has been sent to Pradeep.'
+        : 'Your selection is below to open or download now.';
+      document.getElementById('libBody').style.display = 'none';
+      document.getElementById('libOk').style.display = 'block';
+    });
   }
   document.getElementById('libModal').addEventListener('click', function(e){
     if(e.target === this) closeLibrary();
@@ -918,7 +967,7 @@
     // reset state
     document.getElementById('formBody').style.display = 'block';
     document.getElementById('formOk').style.display = 'none';
-    ['errName','errEmail'].forEach(function(id){document.getElementById(id).classList.remove('show');});
+    ['errName','errEmail','errSend'].forEach(function(id){document.getElementById(id).classList.remove('show');});
     document.getElementById('formModal').classList.add('open');
   }
   function closeForm(){ document.getElementById('formModal').classList.remove('open'); }
@@ -953,8 +1002,19 @@
     fd.append('SingleLine2', fields.detail || '');
     fd.append('SingleLine3', fields.path || '');
     fd.append('MultiLine', fields.message || '');
-    // Fire-and-forget; no-cors so the browser doesn't block the cross-site post.
+    // no-cors so the browser doesn't block the cross-site post.
     return fetch(ZOHO_ENDPOINT, { method:'POST', body: fd, mode:'no-cors' });
+  }
+
+  /* Waits for the request instead of assuming success. A no-cors post cannot read
+     Zoho's reply, so this catches network failures, blockers and timeouts. */
+  function sendWithConfirm(fields, btn, done){
+    var label = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var timeout = new Promise(function(_, reject){ setTimeout(function(){ reject(new Error('timeout')); }, 15000); });
+    Promise.race([zohoSend(fields), timeout])
+      .then(function(){ done(true); }, function(){ done(false); })
+      .then(function(){ btn.disabled = false; btn.textContent = label; });
   }
 
   function submitForm(){
@@ -969,7 +1029,7 @@
     var pathLabel = ({enterprise:'Engage a practitioner', practitioner:'Join the network', general:'Talk to us'})[path] || path;
     var reason = document.getElementById('efReason').value;
 
-    zohoSend({
+    sendWithConfirm({
       path: pathLabel + (reason ? ' (' + reason + ')' : ''),
       name: name,
       email: email,
@@ -977,10 +1037,14 @@
       expertise: document.getElementById('efCluster').value,
       detail: document.getElementById('efSecond').value,
       message: document.getElementById('efMsg').value.trim()
+    }, document.getElementById('efSubmit'), function(ok){
+      if(ok){
+        document.getElementById('formBody').style.display = 'none';
+        document.getElementById('formOk').style.display = 'block';
+      } else {
+        document.getElementById('errSend').classList.add('show');
+      }
     });
-
-    document.getElementById('formBody').style.display = 'none';
-    document.getElementById('formOk').style.display = 'block';
   }
   document.getElementById('formModal').addEventListener('click', function(e){
     if(e.target === this) closeForm();
