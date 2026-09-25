@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BFSI Operating Model Map · YuktiNexus</title>
-<meta name="description" content="How governance changes across five GCC operating models in BFSI, from entry decision to exit, plus the incident reporting clocks for CERT-In, RBI, SEBI, IRDAI, FCA, GDPR and DPDP.">
+<meta name="description" content="How governance changes across five GCC operating models in BFSI, from entry to exit, plus incident reporting clocks for India and for parents regulated in the US, UK, EU, Singapore, Australia and Canada.">
 <meta name="theme-color" content="#071A2C">
 <link rel="canonical" href="https://yuktinexus.com/bfsi-swimlane.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="YuktiNexus">
 <meta property="og:title" content="BFSI Operating Model Map">
-<meta property="og:description" content="How governance changes across five GCC operating models in BFSI, from entry decision to exit, plus the incident reporting clocks for CERT-In, RBI, SEBI, IRDAI, FCA, GDPR and DPDP.">
+<meta property="og:description" content="How governance changes across five GCC operating models in BFSI, from entry to exit, plus incident reporting clocks for India and for parents regulated in the US, UK, EU, Singapore, Australia and Canada.">
 <meta property="og:url" content="https://yuktinexus.com/bfsi-swimlane.html">
 <meta property="og:image" content="https://yuktinexus.com/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BFSI Operating Model Map">
-<meta name="twitter:description" content="How governance changes across five GCC operating models in BFSI, from entry decision to exit, plus the incident reporting clocks for CERT-In, RBI, SEBI, IRDAI, FCA, GDPR and DPDP.">
+<meta name="twitter:description" content="How governance changes across five GCC operating models in BFSI, from entry to exit, plus incident reporting clocks for India and for parents regulated in the US, UK, EU, Singapore, Australia and Canada.">
 <meta name="twitter:image" content="https://yuktinexus.com/og-banner.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,6 +236,16 @@
   .chain2 .rowlink{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;justify-content:stretch}
   .chain2 .rowlink .clk{text-align:left}
   @media(max-width:900px){.chain2{grid-template-columns:1fr}.chain2 .rowlink{grid-template-columns:1fr 1fr;padding-left:28px}}
+  .parent-pick{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:30px 0 14px}
+  .pp-q{margin:0;font-family:var(--serif);font-size:20px;color:#fff}
+  .pp-btns{display:flex;flex-wrap:wrap;gap:8px}
+  .pp-btns button{font:inherit;font-size:14px;cursor:pointer;background:var(--ink-2);color:var(--ice);border:1px solid var(--line);border-radius:20px;padding:7px 15px}
+  .pp-btns button:hover{border-color:var(--gold-2)}
+  .pp-btns button[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:600}
+  .pp-btns button:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+  .pp-note{margin:14px 0 0;max-width:820px;font-size:15px;color:var(--ice);border-left:3px solid #5B87C4;background:var(--ink-2);border-radius:0 10px 10px 0;padding:13px 18px}
+  .pp-note:empty{display:none}
+  .pp-note b{color:#fff}
   .ctx{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--ink-2)}
   .ctx div{padding:22px 22px 24px;border-left:1px solid var(--line)}
   .ctx div:first-child{border-left:0}
@@ -313,10 +323,10 @@
   <div class="wrap">
     <p class="eyebrow">Practitioner Intelligence &middot; BFSI</p>
     <h1>Same regulations. Five operating models. Very different governance.</h1>
-    <p class="lede">For a bank, insurer or asset manager running a Global Capability Centre, what you must do first depends on whether the centre is new or established, and whether it runs in-house, through a provider, or as a mix of both. This page shows the difference at a glance.</p>
+    <p class="lede">For a bank, insurer or asset manager running a Global Capability Centre, what you must do first depends on whether the centre is new or established, and whether it runs in-house, through a provider, or as a mix of both. This page shows the difference at a glance, for a centre in India serving a parent regulated anywhere.</p>
     <ul class="facts">
       <li><b>6 hrs</b>to report a cyber incident to CERT-In, RBI, SEBI or IRDAI</li>
-      <li><b>72 hrs</b>for a detailed breach report under GDPR, and India's DPDP Rules from 2027</li>
+      <li><b>6</b>parent markets mapped: US, UK, EU, Singapore, Australia and Canada</li>
       <li><b>5</b>operating models, each with a different first priority</li>
     </ul>
     <a class="back-link" href="bfsi.html">&larr; Back to BFSI Intelligence</a>
@@ -367,7 +377,7 @@
   <div class="wrap">
     <p class="eyebrow">Incident clocks</p>
     <h2>When something breaks, who has to tell whom, and how fast?</h2>
-    <p class="sub">A serious incident starts several clocks at once. These are the deadlines most teams need to have memorised before the first incident, not after it.</p>
+    <p class="sub">A serious incident starts several clocks at once. Your centre answers to India's regulators, and your parent answers to its own. These are the deadlines most teams need to have memorised before the first incident, not after it.</p>
     <div class="chain">
       <div class="node v"><b>Provider or vendor</b><span>Typical contract terms, managed service or third party</span></div>
       <div class="link">
@@ -390,12 +400,20 @@
         <div class="clk reg"><b>6 hours</b>RBI cyber incidents, from detection</div>
         <div class="clk reg"><b>6 + 24 hours</b>SEBI, email then portal</div>
         <div class="clk reg"><b>6 hours</b>IRDAI, from noticing</div>
-        <div class="clk reg"><b>24 hours</b>FCA and PRA, from threshold met (from Mar 2027)</div>
-        <div class="clk reg"><b>72 hours</b>GDPR personal data breach</div>
-        <div class="clk reg"><b>72 hours</b>DPDP detailed report to the Board (expected May 2027)</div>
+        <div class="clk reg"><b>72 hours</b>DPDP detailed breach report (expected May 2027)</div>
       </div>
-      <div class="node r"><b>Regulators</b><span>Varies by country and product</span></div>
+      <div class="node r"><b>India regulators</b><span>Where your centre sits</span></div>
     </div>
+    <div class="parent-pick">
+      <p class="pp-q">Where is your parent regulated?</p>
+      <div class="pp-btns" id="parentPick" role="group" aria-label="Choose the parent's regulator"></div>
+    </div>
+    <div class="chain chain2">
+      <div class="node gr"><b>Parent group</b><span>Reports to its home regulators</span></div>
+      <div class="link rowlink" id="parentClocks" aria-live="polite"></div>
+      <div class="node r"><b id="parentName">Parent regulators</b><span id="parentSub">Home country</span></div>
+    </div>
+    <p class="pp-note" id="parentNote"></p>
     <div class="chain-note"><b>The clock that catches people out:</b> for most regulators, the clock starts when your institution becomes aware, not when your vendor tells you. A slow vendor notification uses up your time, not theirs.</div>
     <div class="ai-note"><b>A new kind of vendor: AI agents.</b> In September 2026, Australia's government said an unreleased AI agent from a major developer had been accessing a government Medicare portal since June, and that the government was told only in September. The lesson above applies unchanged. If a provider's AI agent can reach your systems, your contract needs to say how fast they must tell you, because your regulator's clock may already be running. <a href="https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law/" target="_blank" rel="noopener">Source: TechCrunch</a></div>
   </div>
@@ -472,7 +490,10 @@
       <li>IRDAI Information and Cyber Security Guidelines, 2023, and later circulars.</li>
       <li><a href="https://www.fca.org.uk/publications/policy-statements/ps26-2-operational-incident-third-party-reporting" target="_blank" rel="noopener">FCA PS26/2</a> and PRA PS7/26, operational incident and third-party reporting, in force 18 March 2027.</li>
       <li>Digital Personal Data Protection Rules, 2025, Rule 7 (breach intimation), commencing 18 months after notification on 13 November 2025.</li>
-      <li>EU GDPR, Article 33.</li>
+      <li>EU GDPR, Article 33, and UK GDPR.</li>
+      <li>US: OCC, Federal Reserve and FDIC Computer-Security Incident Notification Rule (2021); NYDFS 23 NYCRR Part 500; SEC Form 8-K Item 1.05 (2023).</li>
+      <li>EU: Digital Operational Resilience Act (DORA), Article 19, and its technical standards on major incident reporting.</li>
+      <li>Singapore: MAS Notices on Technology Risk Management. Australia: APRA Prudential Standard CPS 234. Canada: <a href="https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/technology-cyber-security-incident-reporting" target="_blank" rel="noopener">OSFI Technology and Cyber Security Incident Reporting</a>.</li>
       <li><a href="https://zinnov.com/centers-of-excellence/zinnov-nasscom-india-gcc-landscape-2026-report/" target="_blank" rel="noopener">Zinnov-Nasscom India GCC Landscape 2026</a>; <a href="https://ansr.com/blog/how-to-pick-a-gcc-operating-model-in-30-days/" target="_blank" rel="noopener">ANSR on operating models</a>; <a href="https://taggd.in/blogs/gcc-skills-in-demand/" target="_blank" rel="noopener">Taggd on GCC skills</a>; <a href="https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf" target="_blank" rel="noopener">WEF Future of Jobs Report 2025</a>.</li>
       <li>Provider and group timings are typical contract and policy terms from practitioner experience, not regulatory requirements.</li>
     </ul>
@@ -680,6 +701,59 @@
       var ov = p.n==='+';
       return '<li'+(ov?' class="ov"':'')+'><span class="n">'+esc(p.n)+'</span><span class="t">'+esc(p.name)+'<small>'+esc(p.group)+'</small></span><span class="l">'+esc(p.lens[cur])+'</span></li>';
     }).join('');
+  }
+  render();
+})();
+</script>
+<script>
+(function(){
+  var P = {
+    us: {label:'United States', sub:'US bank regulators, NYDFS, SEC', clocks:[
+      ['36 hours','OCC, Fed or FDIC, from determining a notification incident'],
+      ['As soon as possible','Bank service provider to the bank, if disruption lasts 4 hours or more'],
+      ['72 hours','NYDFS, New York licensed firms, from determination'],
+      ['4 business days','SEC Form 8-K, after the incident is judged material (listed parents)']],
+      note:'<b>Watch the service-provider rule.</b> US bank rules require a bank service provider to alert the bank as soon as possible when a cyber incident disrupts its services for four hours or more. If your centre or its vendor delivers services to a US bank, check with group counsel whether that duty applies.'},
+    uk: {label:'United Kingdom', sub:'FCA, PRA, ICO', clocks:[
+      ['24 hours','FCA and PRA initial report, from threshold met (from 18 Mar 2027)'],
+      ['72 hours','UK GDPR personal data breach, to the ICO']],
+      note:'<b>From March 2027,</b> UK parents also keep an annual register of material third-party arrangements. Expect to supply your centre\'s data to it.'},
+    eu: {label:'European Union', sub:'DORA supervisors, GDPR authorities', clocks:[
+      ['4 hours','DORA initial notice, from classifying the incident as major'],
+      ['24 hours','DORA backstop, from first becoming aware'],
+      ['72 hours','DORA intermediate report, after the initial notice'],
+      ['72 hours','GDPR personal data breach']],
+      note:'<b>DORA is the tightest regime in Europe.</b> Classification cannot be used to buy time: the initial notice is due within 24 hours of awareness whatever happens.'},
+    sg: {label:'Singapore', sub:'MAS', clocks:[
+      ['1 hour','MAS, from discovering a severe IT incident or system malfunction'],
+      ['14 days','MAS root cause and impact report']],
+      note:'<b>The shortest clock on this page.</b> One hour leaves no room for a vendor delay at all. Escalation from your centre has to be near instant.'},
+    au: {label:'Australia', sub:'APRA', clocks:[
+      ['72 hours','APRA CPS 234, from becoming aware of a material information security incident'],
+      ['10 business days','APRA, for a material control weakness that cannot be fixed promptly']],
+      note:'<b>CPS 234 covers information assets managed by third parties and related entities,</b> which includes a group\'s offshore centres.'},
+    ca: {label:'Canada', sub:'OSFI', clocks:[
+      ['24 hours','OSFI initial report, or sooner if possible'],
+      ['Daily','OSFI updates until all details are provided']],
+      note:'<b>OSFI\'s bar is broad:</b> high-severity incidents by your own internal rating are reportable, so your centre\'s severity scale matters.'}
+  };
+  var ORDER = ['us','uk','eu','sg','au','ca'];
+  var box = document.getElementById('parentPick'), clocks = document.getElementById('parentClocks');
+  var cur = 'us';
+  try { var s = localStorage.getItem('ynParent'); if(P[s]) cur = s; } catch(e){}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  ORDER.forEach(function(k){
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = P[k].label;
+    b.addEventListener('click', function(){ cur = k; try{ localStorage.setItem('ynParent', k); }catch(e){} render(); });
+    b.setAttribute('data-k', k); box.appendChild(b);
+  });
+  function render(){
+    Array.prototype.forEach.call(box.children, function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-k') === cur ? 'true' : 'false'); });
+    var p = P[cur];
+    clocks.innerHTML = p.clocks.map(function(c){ return '<div class="clk reg"><b>'+esc(c[0])+'</b>'+esc(c[1])+'</div>'; }).join('');
+    document.getElementById('parentName').textContent = p.label;
+    document.getElementById('parentSub').textContent = p.sub;
+    document.getElementById('parentNote').innerHTML = p.note;
   }
   render();
 })();
