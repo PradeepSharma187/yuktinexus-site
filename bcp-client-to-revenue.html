@@ -82,6 +82,19 @@
   .form-ok p{font-size:14px;color:var(--muted)}
 
   
+  /* mobile menu (matches insights.html) */
+  .navdrop>span{cursor:pointer}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:8px;width:40px;height:40px;font-size:18px;cursor:pointer}
+  .nav-cta-m{display:none;font-size:13.5px;font-weight:500;background:var(--gold);color:var(--ink);padding:9px 18px;border-radius:7px;text-decoration:none}
+  @media(max-width:860px){
+    .menu-btn{display:block}
+    .nav-cta{display:none}
+    .navlinks.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:14px;background:var(--ink-3);padding:18px 28px 22px;border-bottom:1px solid var(--line)}
+    .navlinks.open .navdrop{flex-direction:column;align-items:flex-start;align-self:auto}
+    .navlinks.open .navdrop>span{color:var(--muted);font-size:12px}
+    .navlinks.open .navdrop-menu{display:block;position:static;transform:none;background:none;border:0;box-shadow:none;padding:4px 0 0 10px;min-width:0}
+    .navlinks.open .nav-cta-m{display:inline-block}
+  }
   /* article head */
   .a-head{position:relative;overflow:hidden;padding:72px 0 64px}
   .a-head:before{content:"";position:absolute;inset:0;background:radial-gradient(900px 420px at 80% -10%,rgba(184,146,26,.14),transparent 60%);pointer-events:none}
@@ -194,11 +207,18 @@
       <span class="brand-divider"></span>
       <span class="brand-type"><span>YUKTI<b>NEXUS</b></span><small>Where strategy meets connectivity</small></span>
     </a>
-    <nav class="navlinks" aria-label="Main">
+    <nav class="navlinks" id="navlinks">
       <a href="index.html#problem">The gap</a>
       <a href="index.html#how">How it works</a>
       <a href="index.html#clusters">Expertise</a>
       <a href="index.html#formats">Engage</a>
+      <div class="navdrop">
+        <span tabindex="0">Intelligence</span>
+        <div class="navdrop-menu">
+          <a href="gcc.html">GCC Intelligence</a>
+          <a href="bfsi.html">BFSI Intelligence</a>
+        </div>
+      </div>
       <div class="navdrop">
         <span tabindex="0">Resources</span>
         <div class="navdrop-menu">
@@ -206,9 +226,10 @@
           <a href="insights.html" aria-current="page">From the Network</a>
         </div>
       </div>
-      <a href="index.html#investor">Investors</a>
+      <a class="nav-cta-m" href="#" onclick="openForm('general');return false;">Talk to us</a>
     </nav>
     <a class="nav-cta" href="#" onclick="openForm('general');return false;">Talk to us</a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navlinks">&#9776;</button>
   </div>
 </header>
 
@@ -338,12 +359,10 @@
     </a>
     <div class="foot-links">
       <a href="index.html#problem">The gap</a>
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#clusters">Expertise</a>
-      <a href="index.html#formats">Engage</a>
+      <a href="gcc.html">GCC Intelligence</a>
+      <a href="bfsi.html">BFSI Intelligence</a>
       <a href="index.html#resources">Library</a>
       <a href="insights.html">From the Network</a>
-      <a href="index.html#investor">Investors</a>
       <a href="https://www.linkedin.com/company/yuktinexus" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="foot-meta">© 2026 YuktiNexus Expert Network<br>A practitioner network for operations &amp; GCC transformation</div>
@@ -463,6 +482,16 @@
     document.getElementById('formBody').style.display = 'none';
     document.getElementById('formOk').style.display = 'block';
   }
+</script>
+<script>
+  (function(){
+    var btn = document.querySelector('.menu-btn'), nav = document.getElementById('navlinks');
+    if(!btn || !nav) return;
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  })();
 </script>
 </body>
 </html>
